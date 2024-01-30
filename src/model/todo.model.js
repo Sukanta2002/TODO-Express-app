@@ -1,18 +1,32 @@
 import mongoose from "mongoose";
 
-const todoSchema = new mongoose.Schema({
-    todoName: {
-        type: String,
-        required: true,
+// Use to create a new schema
+const todoSchema = new mongoose.Schema(
+    {
+        todoName: {
+            type: String,
+            required: true,
+        },
+        isComplited: {
+            type: Boolean,
+            default: false,
+        },
+        owner: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User",
+            required: true,
+        },
     },
-    isComplited: {
-        type: Boolean,
-        default: false
-    }
-},{timestamps: true})
+    // The timestamps will add the fiels of "created at" and "updated at" to the mongoDB
+    { timestamps: true }
+);
 
-const Todo = mongoose.model("Todo",todoSchema)
+// Use to make a model out of the schema
+// NOTE: the name "Todo" will be changed in the mongodb database as "todos"
+// we will directly export the "Todo"
+export const Todo = mongoose.model("Todo", todoSchema);
 
-export {
-    Todo
-}
+// We will not export it this way
+// export {
+//     Todo
+// }

@@ -1,0 +1,6 @@
+Task 1:-
+
+1. Create a new express app and try to run it on your own 
+2. Show me the code and explain me each and every line of it
+
+NOTE: First complate it after that we will go to the next lesson
